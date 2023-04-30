@@ -29,21 +29,37 @@ export const TicketCard = ({
           >
             Update
           </button>
-          <div className="dropdown">
-            <label tabIndex={0} className="btn m-1">
-              Click
-            </label>
-            <ul
+          <div className="dropdown dropdown-right">
+            <label
               tabIndex={0}
-              className="dropdown-content menu rounded-box w-52 bg-base-100 p-2 shadow"
+              className="btn-ghost btn-xs btn-circle btn text-info"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-            </ul>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                class="feather feather-more-vertical h-4 w-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </label>
+            <div
+              tabIndex={0}
+              className="card dropdown-content compact rounded-box w-64 bg-base-100 shadow"
+            >
+              <button onClick={() => onUpdate(TicketStatus.IN_PROGRESS)}>
+                Update status to In Progress
+              </button>
+              <button onClick={() => onUpdate(TicketStatus.DONE)}>
+                Update status to Done
+              </button>
+            </div>
           </div>
           <div className="collapse-title text-xl font-bold">
             {ticket.title} - {getTicketStatusReadable(ticket.status)}
