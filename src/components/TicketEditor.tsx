@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
+import CodeMirror from "@uiw/react-codemirror";
 
-export const NoteEditor = ({
+export const TicketEditor = ({
   onSave,
 }: {
-  onSave: (note: { title: string; content: string }) => void;
+  onSave: (ticket: { title: string; content: string }) => void;
 }) => {
   const [code, setCode] = useState<string>("");
   const [title, setTitle] = useState<string>("");
@@ -18,7 +18,7 @@ export const NoteEditor = ({
         <h2 className="card-title">
           <input
             type="text"
-            placeholder="Note title"
+            placeholder="Ticket title"
             className="input-primary input input-lg w-full font-bold"
             value={title}
             onChange={(e) => setTitle(e.currentTarget.value)}

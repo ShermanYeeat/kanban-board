@@ -2,6 +2,14 @@
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
+## How to run this project?
+
+- `npm install` to install packages
+- `npm run build` to build the project
+- `npm run build` to build the project
+- `npm run dev` to run the project locally
+- `npx prisma db push` to apply schema changes
+
 ## What's next? How do I make an app with this?
 
 We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
