@@ -1,3 +1,4 @@
+import { TicketStatus } from "~/types/ticket";
 import { type RouterOutputs } from "../utils/api";
 import { TicketCard } from "./TicketCard";
 import { TicketEditor } from "./TicketEditor";
@@ -16,9 +17,17 @@ export const KanbanColumn = ({
   title: string;
   project: Project;
   tickets: Ticket[];
-  deleteTicket: ({ id: string }) => void;
-  updateTicket: ({ id: string, status: TicketStatus }) => void;
-  saveTicket: ({ title: string, content: string, projectId: string }) => void;
+  deleteTicket: ({ id }: { id: string }) => void;
+  updateTicket: ({ id, status }: { id: string; status: TicketStatus }) => void;
+  saveTicket: ({
+    title,
+    content,
+    projectId,
+  }: {
+    title: string;
+    content: string;
+    projectId: string;
+  }) => void;
 }) => {
   return (
     <div className="col-span-1">
