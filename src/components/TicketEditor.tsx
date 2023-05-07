@@ -26,10 +26,10 @@ export const TicketEditor = ({
         </h2>
         <CodeMirror
           value={code}
-          width="500px"
-          height="30vh"
-          minWidth="100%"
-          minHeight="30vh"
+          width="200px"
+          height="10vh"
+          minWidth="50%"
+          minHeight="10vh"
           extensions={[
             markdown({ base: markdownLanguage, codeLanguages: languages }),
           ]}
