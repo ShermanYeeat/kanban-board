@@ -1,4 +1,4 @@
-import { getTicketStatusReadable } from "~/types/ticket";
+import { TicketStatus, getTicketStatusReadable } from "~/types/ticket";
 import { type RouterOutputs } from "../utils/api";
 
 type Ticket = RouterOutputs["ticket"]["getAll"][0];
@@ -32,7 +32,8 @@ export const TicketModal = ({
             ✕
           </label>
           <div className="text-xl font-bold">
-            {ticket.title} - {getTicketStatusReadable(ticket.status)}
+            {ticket.title} -{" "}
+            {getTicketStatusReadable(ticket.status as TicketStatus)}
           </div>
           <p className="py-4">{ticket.content}</p>
           <div className="card-actions mx-2 flex justify-end">
