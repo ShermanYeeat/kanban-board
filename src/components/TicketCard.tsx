@@ -30,7 +30,7 @@ export const TicketCard = ({
   return (
     <div className="card mt-5 border border-gray-200 bg-base-100 shadow-xl ">
       <div className="grid grid-cols-12">
-        <div className="col-span-11">
+        <div className="col-span-10">
           <div className="card-body m-0 p-3">
             <div onClick={() => toggleModal()} style={{ cursor: "pointer" }}>
               <div className="text-l collapse-title font-bold">
@@ -46,7 +46,7 @@ export const TicketCard = ({
           </div>
         </div>
 
-        <div className="col-span-1 mt-2">
+        <div className="col-span-2 mt-2">
           <UpdateTicketStatus
             ticketStatus={ticket.status as TicketStatus}
             onUpdate={onUpdate}

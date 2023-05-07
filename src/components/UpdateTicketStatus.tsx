@@ -47,7 +47,7 @@ export const UpdateTicketStatus = ({
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          class="feather feather-more-vertical h-4 w-4"
+          className="feather feather-more-vertical h-4 w-4"
         >
           <circle cx="12" cy="12" r="1"></circle>
           <circle cx="12" cy="5" r="1"></circle>
