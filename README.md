@@ -1,6 +1,6 @@
 # Kanban Board
 
-This uses[T3 Stack](https://create.t3.gg/) to build a kanban board.
+This uses the [T3 Stack](https://create.t3.gg/) + [Supabase](https://supabase.com/) to build a kanban board.
 
 ## How to run this project?
 
