@@ -1,5 +1,5 @@
-import { TicketStatus, getTicketStatusReadable } from "~/types/ticket";
-import { type RouterOutputs } from "../utils/api";
+import { getTicketStatusReadable, type TicketStatus } from "~/types/ticket";
+import type { RouterOutputs } from "../utils/api";
 
 type Ticket = RouterOutputs["ticket"]["getAll"][0];
 

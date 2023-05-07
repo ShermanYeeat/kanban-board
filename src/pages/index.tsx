@@ -3,7 +3,6 @@ import { useSession } from "next-auth/react";
 import Head from "next/head";
 import { useState } from "react";
 
-import type { Project } from "@prisma/client";
 import { KanbanColumn } from "~/components/KanbanColumn";
 import { getTicketStatusReadable, TicketStatus } from "~/types/ticket";
 import { Header } from "../components/Header";
@@ -59,22 +58,6 @@ const Content: React.FC = () => {
       enabled: sessionData?.user !== undefined && selectedProject !== null,
     }
   );
-
-  const ticketMap = {
-    [TicketStatus.TO_DO]: [],
-    [TicketStatus.IN_PROGRESS]: [],
-    [TicketStatus.IN_REVIEW]: [],
-    [TicketStatus.DONE]: [],
-  };
-
-  if (tickets) {
-    tickets.forEach((ticket) => {
-      const status = ticket.status as TicketStatus;
-      if (ticketMap[status]) {
-        ticketMap[status].push(ticket);
-      }
-    });
-  }
 
   const createTicket = api.ticket.create.useMutation({
     onSuccess: () => {
@@ -133,7 +116,7 @@ const Content: React.FC = () => {
             key={status}
             title={getTicketStatusReadable(status)}
             project={selectedProject as Project}
-            tickets={ticketMap[status]}
+            tickets={tickets?.filter((ticket) => ticket.status === status)}
             deleteTicket={({ id }: { id: string }) =>
               deleteTicket.mutate({ id })
             }
