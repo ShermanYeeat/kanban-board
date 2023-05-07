@@ -1,11 +1,10 @@
-# Create T3 App
+# Kanban Board
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This uses[T3 Stack](https://create.t3.gg/) to build a kanban board.
 
 ## How to run this project?
 
 - `npm install` to install packages
-- `npm run build` to build the project
 - `npm run build` to build the project
 - `npm run dev` to run the project locally
 - `npx prisma db push` to apply schema changes
