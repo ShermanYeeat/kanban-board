@@ -1,5 +1,8 @@
 # Kanban Board
 
+![image](https://github.com/ShermanYeeat/kanban-board/assets/24278431/049638a0-7894-4ad3-b3d8-82761795a7c3)
+
+
 This uses the [T3 Stack](https://create.t3.gg/) + [Supabase](https://supabase.com/) to build a kanban board.
 
 ## How to run this project?
