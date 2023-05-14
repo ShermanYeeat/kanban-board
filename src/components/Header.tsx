@@ -7,10 +7,12 @@ export const Header = () => {
   return (
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1 pl-5 text-3xl font-bold">
-        {sessionData?.user?.name ? `Projects for ${sessionData.user.name}` : ""}
+        {sessionData?.user?.name
+          ? `Kanban Board for ${sessionData.user.name}`
+          : ""}
       </div>
       <div className="flex-none gap-2">
-        <div className="dropdown dropdown-end">
+        <div className="dropdown-end dropdown">
           {sessionData?.user ? (
             <label
               tabIndex={0}

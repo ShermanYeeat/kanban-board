@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useState } from "react";
 
 import { KanbanColumn } from "~/components/KanbanColumn";
+import { TicketCreator } from "~/components/TicketCreator";
 import { getTicketStatusReadable, TicketStatus } from "~/types/ticket";
 import { Header } from "../components/Header";
 import { api, type RouterOutputs } from "../utils/api";
@@ -78,13 +79,14 @@ const Content: React.FC = () => {
   });
 
   return (
-    <>
-      <div className="px-2">
+    <div className="flex pt-6">
+      <div className="w-200 mx-6">
         <ul className="menu rounded-box w-56 bg-base-100 p-2">
           {projects?.map((project) => (
             <li key={project.id}>
               <a
                 href="#"
+                className={selectedProject === project ? "bg-primary" : ""}
                 onClick={(evt) => {
                   evt.preventDefault();
                   setSelectedProject(project);
@@ -110,12 +112,11 @@ const Content: React.FC = () => {
           }}
         />
       </div>
-      <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
+      <div className="mt-5 grid w-[1200px] grid-cols-4 gap-2 ">
         {Object.values(TicketStatus).map((status) => (
           <KanbanColumn
             key={status}
             title={getTicketStatusReadable(status)}
-            project={selectedProject as Project}
             tickets={tickets?.filter((ticket) => ticket.status === status)}
             deleteTicket={({ id }: { id: string }) =>
               deleteTicket.mutate({ id })
@@ -127,22 +128,21 @@ const Content: React.FC = () => {
               id: string;
               status: TicketStatus;
             }) => updateTicket.mutate({ id, status })}
-            saveTicket={({
-              title,
-              content,
-            }: {
-              title: string;
-              content: string;
-            }) =>
-              createTicket.mutate({
-                title,
-                content,
-                projectId: selectedProject?.id ?? "",
-              })
-            }
           />
         ))}
       </div>
-    </>
+      <div className="mx-6">
+        <TicketCreator
+          onSave={({ title, content, points }) => {
+            createTicket.mutate({
+              title,
+              content,
+              points,
+              projectId: selectedProject?.id ?? "",
+            });
+          }}
+        />
+      </div>
+    </div>
   );
 };

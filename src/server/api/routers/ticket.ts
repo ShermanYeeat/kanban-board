@@ -19,6 +19,7 @@ export const ticketRouter = createTRPCRouter({
       z.object({
         title: z.string(),
         content: z.string(),
+        points: z.number(),
         projectId: z.string(),
       })
     )
@@ -29,6 +30,7 @@ export const ticketRouter = createTRPCRouter({
           title: input.title,
           projectId: input.projectId,
           content: input.content,
+          points: input.points,
           status: TicketStatus.TO_DO,
         },
       });

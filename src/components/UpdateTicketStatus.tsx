@@ -15,25 +15,30 @@ export const UpdateTicketStatus = ({
     const statusValues = Object.values(TicketStatus);
 
     return (
-      <ul>
-        {statusValues.map((statusValue) => (
-          <li
-            key={statusValue}
-            onClick={() => {
-              onToggle();
-              onUpdate(statusValue);
-            }}
-            className={ticketStatus === statusValue ? "disabled" : ""}
-          >
-            <div>Update status to {getTicketStatusReadable(statusValue)}</div>
-          </li>
-        ))}
-      </ul>
+      <div className="border border-gray-300 p-3">
+        <div className="text-center font-bold">Set status to</div>
+        <ul className="divide-y divide-gray-300 text-xs">
+          {statusValues.map((statusValue) => (
+            <li
+              key={statusValue}
+              onClick={() => {
+                onToggle();
+                onUpdate(statusValue);
+              }}
+              className={`py-2 ${
+                ticketStatus === statusValue ? "disabled" : ""
+              }`}
+            >
+              <div>{getTicketStatusReadable(statusValue)}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
   return (
-    <div className="dropdown dropdown-bottom dropdown-end">
+    <div className="dropdown dropdown-right">
       <label
         tabIndex={0}
         className="btn-ghost btn-xs btn-circle btn text-info"

@@ -90,6 +90,7 @@ model Ticket {
     title     String
     content   String   @db.Text
     status    String
+    points    Int
     Project   Project  @relation(fields: [projectId], references: [id])
     projectId String
 }
